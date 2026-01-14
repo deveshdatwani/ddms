@@ -6,8 +6,8 @@ import logging
 from logging.handlers import RotatingFileHandler
 import os
 
-db = SQLAlchemy()
-migrate = Migrate()
+# db = SQLAlchemy()
+# migrate = Migrate()
 
 def create_app(config_name=None):
     app = Flask(__name__)
@@ -15,14 +15,15 @@ def create_app(config_name=None):
     # Load config
     if config_name is None:
         config_name = os.getenv('FLASK_CONFIG', 'development')
-    app.config.from_object(f"app.config.{config_name.capitalize()}Config")
+    else:
+        app.config.from_object(f"app.config.{config_name.capitalize()}Config")
 
-    # Initialize extensions
-    db.init_app(app)
-    migrate.init_app(app, db)
+    # # Initialize extensions
+    # db.init_app(app)
+    # migrate.init_app(app, db)
 
     # Register blueprints
-    from app.routes.main import main_bp
+    from user_app.routes.main import main_bp
     app.register_blueprint(main_bp)
 
     # Logging
