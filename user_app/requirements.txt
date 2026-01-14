@@ -1,0 +1,10 @@
+flask
+pyjwt
+boto3
+mysql-connector-python
+pillow
+requests
+gunicorn
+celery
+redis
+pytest
