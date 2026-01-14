@@ -2,7 +2,6 @@ import os
 import logging  
 from . import auth, apparel
 from flask import Flask, render_template
-from .config.config import Config 
 
 
 def create_app(config_file=None): 
@@ -24,7 +23,7 @@ def create_app(config_file=None):
         app.logger.warning("No config file found") 
         app.config["access_key"] = os.environ.get("AWS_ACCESS_KEY", default=None)
         app.config["secret_key"] = os.environ.get("AWS_SECRET_KEY", default=None)
-        app.config["secret"] = "closetx_secret"
+        app.config["secret"] = "user_app"
     return app
 
 
@@ -32,4 +31,4 @@ app = create_app(Config)
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return "hello"
