@@ -1,0 +1,8 @@
+flask
+pyjwt
+boto3
+mysql-connector-python
+pillow
+opencv-python-headless
+boto3
+pytest
