@@ -1,6 +1,9 @@
 ## Custom Loss Functions
 
+
 You can use any built-in or custom loss function in your experiments.
+
+**Custom loss functions must subclass `torch.nn.Module` and implement the `forward` method.**
 
 ### 1. Writing a Custom Loss Function
 
