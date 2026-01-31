@@ -96,6 +96,23 @@ This project provides a modular, flexible framework for training, validating, an
 	 - Set your wandb API key (see wandb docs) or run `wandb login` once.
 	 - All runs are logged to wandb with your chosen plot name.
 
+
+## Optimizer Selection
+
+You can choose the optimizer type and parameters in your config or via CLI.
+
+Example config:
+```yaml
+optimizer:
+	type: adam           # adam, sgd, etc.
+	params: {}
+```
+
+Override via CLI:
+```bash
+python dl/train/train.py --optimizer__type sgd --optimizer__params '{"momentum": 0.9}'
+```
+
 ## Configuration Example (`dl/train/config.yaml`)
 
 ```yaml
