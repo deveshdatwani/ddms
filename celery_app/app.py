@@ -10,10 +10,4 @@ HOST = os.getenv("REDIS_HOST", "localhost")
 app = Celery("celery_app",
              broker=f"redis://{HOST}:6379/0",
              backend=f"redis://{HOST}:6379/0")
-
-
-@app.task
-def add_two_numbers(x, y):
-    result = x + y
-    logger.info(f"Adding {x} and {y} to get {result}")
-    return result
+app.autodiscover_tasks(["closetx.celery_tasks"])
