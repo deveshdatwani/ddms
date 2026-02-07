@@ -1,0 +1,15 @@
+FROM python:3.10
+
+COPY ./closetx/model /model
+COPY ./closetx/.env /model/.env
+COPY ./closetx/requirements.txt /model/requirements.txt
+WORKDIR /model
+
+RUN apt-get update && apt-get install -y libpq-dev build-essential
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
+
+WORKDIR /
+
+CMD ["python3", "-m", "celery", "-A", "celery_app.app", "worker"]
+
