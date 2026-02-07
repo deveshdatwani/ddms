@@ -1,0 +1,13 @@
+{
+    "manifest_version": 3,
+    "name": "Closetx Frontend",
+    "version": "1.0",
+    "permissions": ["scripting", "activeTab"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_title": "Inject Sidebar"
+    }
+  }
+  
